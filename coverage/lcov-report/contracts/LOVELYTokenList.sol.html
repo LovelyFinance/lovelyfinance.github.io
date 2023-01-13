@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/LOVELYTokenList.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> LOVELYTokenList.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>16/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">56.25% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>9/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>12/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>25/25</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">38×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">47×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: UNLICENSED
+&nbsp;
+pragma solidity ^0.5.16;
+&nbsp;
+import "./uniswap/v2-core-patched/UniswapV2Pair.sol";
+import "./ILOVELYTokenList.sol";
+&nbsp;
+contract LOVELYTokenList is ILOVELYTokenList {
+&nbsp;
+    struct Token {
+&nbsp;
+        // Amount, which must be paid to make the token valid
+        uint256 validationAmount;
+&nbsp;
+        // A token, in which this amount should be paid
+        address validationToken;
+&nbsp;
+        // A block number, after which the token becomes active
+        uint activationBlockNumber;
+    }
+&nbsp;
+    uint defaultValidationAmount;
+&nbsp;
+    address private owner;
+&nbsp;
+    address[] public addresses;
+    mapping(address =&gt; Token) slots;
+&nbsp;
+    address feeTo;
+    address public feeToSetter;
+&nbsp;
+    constructor(address _owner) public {
+        owner = _owner;
+        feeTo = _owner;
+        feeToSetter = _owner;
+    }
+&nbsp;
+    function getDefaultValidationAmount() public view returns (uint) {
+        return defaultValidationAmount;
+    }
+&nbsp;
+    function setDefaultValidationAmount(uint _value) public {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(owner == msg.sender, 'UniswapV2: FORBIDDEN');
+&nbsp;
+        defaultValidationAmount = _value;
+    }
+&nbsp;
+    function add(address _token, address _validationToken, uint _validationAmount, uint _activationBlockNumber) public {
+&nbsp;
+        // This check was replaced with another check below allowing non-owners to list their tokens.
+        // require(owner == msg.sender, "LOVELY DEX: NOT_OWNER");
+&nbsp;
+        // Cannot add the token twice
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(slots[_token].validationToken == address(0x0), 'LOVELY DEX: EXISTS');
+&nbsp;
+        // Non-DEX-owners cannot re-define validation amount
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(msg.sender == owner || <span class="branch-1 cbranch-no" title="branch not covered" >_validationAmount == defaultValidationAmount</span>, "LOVELY DEX: TOKEN_LIST_VALIDATION_AMOUNT");
+&nbsp;
+        // Validate the token being added
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(feeTo != address(0), "LOVELY DEX: NON_FEE_LIST");
+        IERC20(_validationToken).transferFrom(msg.sender, feeTo, _validationAmount);
+&nbsp;
+        // Save requirements for token validation
+        slots[_token].validationToken = _validationToken;
+        slots[_token].validationAmount = _validationAmount;
+        slots[_token].activationBlockNumber = _activationBlockNumber;
+&nbsp;
+        // Save to an address index.
+        // This cannot happen twice.
+        // So, there are no search checks.
+        addresses.push(_token);
+    }
+&nbsp;
+    function at(uint i) public view returns (address) {
+        return addresses[i];
+    }
+&nbsp;
+    function length() public view returns (uint256) {
+        return addresses.length;
+    }
+&nbsp;
+    function validationAmountAt(uint i) public view returns (uint256) {
+        return slots[addresses[i]].validationAmount;
+    }
+&nbsp;
+    function validationTokenAt(uint i) public view returns (address) {
+        return slots[addresses[i]].validationToken;
+    }
+&nbsp;
+    function activationBlockNumberFor(address token) public view returns (uint) {
+        return slots[token].activationBlockNumber;
+    }
+&nbsp;
+    function setFeeTo(address _feeTo) external {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(msg.sender == feeToSetter, 'LOVELY DEX: FORBIDDEN');
+        feeTo = _feeTo;
+    }
+&nbsp;
+    function setFeeToSetter(address _feeToSetter) external {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(msg.sender == feeToSetter, 'LOVELY DEX: FORBIDDEN');
+        feeToSetter = _feeToSetter;
+    }
+&nbsp;
+    // Initial implementation suggested a separate procedure for validation
+    // function validate(address _token) private {
+    //     require(feeTo != address(0), "LOVELY DEX: NON_FEE_LIST");
+    //     IERC20(slots[_token].token).transferFrom(msg.sender, feeTo, slots[_token].amount);
+    //     slots[_token].amount = 0;
+    // }
+&nbsp;
+    function validated(address _token) public view returns (bool) {
+&nbsp;
+        // Requested token must be known
+        require(slots[_token].validationToken != address(0x0), 'LOVELY DEX: NOT_EXISTS');
+&nbsp;
+        // v.1.0
+        // return 0 == slots[_token].amount;
+        // v.2.0
+        return true;
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jan 13 2023 23:03:39 GMT+0200 (GMT+02:00)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

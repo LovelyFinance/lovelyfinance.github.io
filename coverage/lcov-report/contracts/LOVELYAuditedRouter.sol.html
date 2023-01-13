@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/LOVELYAuditedRouter.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> LOVELYAuditedRouter.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.04% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>1/49</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: UNLICENSED
+&nbsp;
+pragma solidity ^0.6.6;
+&nbsp;
+import "./LOVELYRouter.sol";
+import './uniswap/v2-periphery-patched/UniswapV2Library.sol';
+&nbsp;
+/**
+    @title The DEX's router, which can be enabled to collect data for the trades oracle.
+&nbsp;
+    The trades oracle serves for tracking the trades history on-chain. 
+    Such tracking might be necessary for particular events, which can be researched or analytics 
+    for which may be used to build additional business processes.    
+&nbsp;
+&nbsp;
+    The overall process to use the trades oracle:
+    1. An event is started.
+    2. This event creates an instance of the auditer router.
+    3. The whole system or a part of the system is switched to using this router.
+    4. Data is collected.
+    5. The event is finished.
+    6. The whole system or a part of the system switches back to the usual router.
+    7. Collected data is analyzed on-chain.
+&nbsp;
+    The outcome of such behavior is ability to proof the trades data on-chain.
+ */
+contract LOVELYAuditedRouter is LOVELYRouter {
+&nbsp;
+    /**
+        The tracked token.
+     */
+    address target;
+&nbsp;
+    /**
+        The list of tracked  addresses.
+     */
+    address[] public addresses;
+&nbsp;
+    /**
+        Contains volumes for each tracked address.
+     */
+    mapping(address =&gt; uint256) public volumes;
+&nbsp;
+    /**
+        Creates the audited router with the trades oracle.
+&nbsp;
+        @param factory The DEX factory, to be able to interact with the DEX.
+        @param weth The WETH token address, to be able to create a router.
+        @param _target A token, for which the audition will be performed.
+     */
+    constructor(address factory, address weth, address _target) LOVELYRouter(factory, weth) public {
+        target = _target;
+    }
+&nbsp;
+    /**
+        Returns the lenth of the tracked addresses list.
+     */
+<span class="fstat-no" title="function not covered" >    function addressesLength() public view returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        return addresses.length;</span>
+    }
+&nbsp;
+    /**
+        Returns the given amount of top-volume tracked addresses.
+&nbsp;
+        @param count The amount of addresses to be returned.
+     */
+<span class="fstat-no" title="function not covered" >    function topAddresses(uint256 count) public view returns (address[] memory) {</span>
+&nbsp;
+        // Cannot collect "count" winners when no so much players
+<span class="cstat-no" title="statement not covered" >        require(count &lt;= addresses.length, "LOVELY DEX: NO_PLAYERS")</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        address[] memory top = new address[](count);</span>
+<span class="cstat-no" title="statement not covered" >        address[] memory processed = addresses;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        for (uint256 i = 0; i &lt; count; i++) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            uint256 biggest = i;</span>
+<span class="cstat-no" title="statement not covered" >            uint256 biggestValue = volumes[addresses[i]];</span>
+<span class="cstat-no" title="statement not covered" >            for (uint256 k = i; k &lt; addresses.length; k++) {</span>
+<span class="cstat-no" title="statement not covered" >                if (biggestValue &lt; volumes[addresses[k]]) {</span>
+                    biggest = k;
+                    biggestValue = volumes[addresses[k]];
+                }
+            }
+&nbsp;
+            // 3-glass exchange :)
+<span class="cstat-no" title="statement not covered" >            address glass = processed[i];</span>
+            processed[i] = processed[biggest];
+            processed[biggest] = glass;
+&nbsp;
+            top[i] = processed[i];
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return top;</span>
+    }
+&nbsp;
+    /**
+        Internally hooks into the "_swap" router's call to record necessary data.
+&nbsp;
+        The volume is accumulated for the given target token.
+     */
+<span class="fstat-no" title="function not covered" >    function _swap(uint[] memory amounts, address[] memory path, address _to) internal override {</span>
+<span class="cstat-no" title="statement not covered" >        for (uint i; i &lt; path.length - 1; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            (address input, address output) = (path[i], path[i + 1]);</span>
+<span class="cstat-no" title="statement not covered" >            (address token0,) = UniswapV2Library.sortTokens(input, output);</span>
+<span class="cstat-no" title="statement not covered" >            uint amountOut = amounts[i + 1];</span>
+<span class="cstat-no" title="statement not covered" >            (uint amount0Out, uint amount1Out) = input == token0 ? (uint(0), amountOut) : (amountOut, uint(0));</span>
+<span class="cstat-no" title="statement not covered" >            address to = i &lt; path.length - 2 ? UniswapV2Library.pairFor(factory, output, path[i + 2]) : _to;</span>
+<span class="cstat-no" title="statement not covered" >            IUniswapV2Pair(UniswapV2Library.pairFor(factory, input, output)).swap(</span>
+                amount0Out, amount1Out, to, new bytes(0)
+            );
+&nbsp;
+            // Track into the audition log
+            // (if no volume before, but new volume is more than zero)
+<span class="cstat-no" title="statement not covered" >            if (0 == volumes[to] &amp;&amp; (0 &lt; amount0Out || 0 &lt; amount1Out)) {</span>
+<span class="cstat-no" title="statement not covered" >                addresses.push(to)</span>;
+            }
+<span class="cstat-no" title="statement not covered" >            if (target == input &amp;&amp; 0 &lt; amount0Out) {</span>
+                volumes[to] += amount0Out;
+            } else <span class="cstat-no" title="statement not covered" >if (target == output &amp;&amp; 0 &lt; amount1Out) {</span>
+                volumes[to] += amount1Out;
+            }
+        }
+    }
+&nbsp;
+    /**
+        Internally hooks into the "_swapSupportingFeeOnTransferTokens" router's call to record necessary data.
+&nbsp;
+        The volume is accumulated for the given target token.
+     */
+<span class="fstat-no" title="function not covered" >    function _swapSupportingFeeOnTransferTokens(address[] memory path, address _to) internal override {</span>
+<span class="cstat-no" title="statement not covered" >        for (uint i; i &lt; path.length - 1; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            (address input, address output) = (path[i], path[i + 1]);</span>
+<span class="cstat-no" title="statement not covered" >            (address token0,) = UniswapV2Library.sortTokens(input, output);</span>
+<span class="cstat-no" title="statement not covered" >            ILOVELYPairToken pair = ILOVELYPairToken(UniswapV2Library.pairFor(factory, input, output));</span>
+<span class="cstat-no" title="statement not covered" >            uint fee = pair.getFee();</span>
+<span class="cstat-no" title="statement not covered" >            uint amountInput;</span>
+<span class="cstat-no" title="statement not covered" >            uint amountOutput;</span>
+            {// scope to avoid stack too deep errors
+<span class="cstat-no" title="statement not covered" >                (uint reserve0, uint reserve1,) = pair.getReserves();</span>
+<span class="cstat-no" title="statement not covered" >                (uint reserveInput, uint reserveOutput) = input == token0 ? (reserve0, reserve1) : (reserve1, reserve0);</span>
+                amountInput = IERC20(input).balanceOf(address(pair)).sub(reserveInput);
+                amountOutput = UniswapV2Library.getAmountOut(amountInput, reserveInput, reserveOutput, fee);
+            }
+<span class="cstat-no" title="statement not covered" >            (uint amount0Out, uint amount1Out) = input == token0 ? (uint(0), amountOutput) : (amountOutput, uint(0));</span>
+<span class="cstat-no" title="statement not covered" >            address to = i &lt; path.length - 2 ? UniswapV2Library.pairFor(factory, output, path[i + 2]) : _to;</span>
+<span class="cstat-no" title="statement not covered" >            pair.swap(amount0Out, amount1Out, to, new bytes(0))</span>;
+&nbsp;
+            // Track into the audition log
+            // (if no volume before, but new volume is more than zero)
+<span class="cstat-no" title="statement not covered" >            if (0 == volumes[to] &amp;&amp; (0 &lt; amount0Out || 0 &lt; amount1Out)) {</span>
+<span class="cstat-no" title="statement not covered" >                addresses.push(to)</span>;
+            }
+<span class="cstat-no" title="statement not covered" >            if (target == input &amp;&amp; 0 &lt; amount0Out) {</span>
+                volumes[to] += amount0Out;
+            } else <span class="cstat-no" title="statement not covered" >if (target == output &amp;&amp; 0 &lt; amount1Out) {</span>
+                volumes[to] += amount1Out;
+            }
+        }
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jan 13 2023 23:03:39 GMT+0200 (GMT+02:00)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
