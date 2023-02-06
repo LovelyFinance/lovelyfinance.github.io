@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for contracts/interfaces/ILOVELYTokenList.sol</title>
+    <title>Code coverage report for contracts/LOVELYLaunchpad/LOVELYTreasury.sol</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">all files</a> / <a href="index.html">contracts/interfaces/</a> ILOVELYTokenList.sol
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/LOVELYLaunchpad/</a> LOVELYTreasury.sol
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>2/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>5/5</span>
       </div>
     </div>
   </div>
@@ -66,7 +66,13 @@
 21
 22
 23
-24</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+24
+25
+26
+27
+28
+29
+30</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -80,6 +86,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -87,30 +98,37 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: UNLICENSED
-&nbsp;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
 pragma solidity =0.8.15;
 &nbsp;
-/**
-    An interface to represent the LOVELY DEX token listing.
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 &nbsp;
-    Used in:
-    - LOVELYFactory;
-    - LOVELYCompetition.
- */
-interface ILOVELYTokenList {
+contract LOVELYTreasury {
+    using SafeERC20 for IERC20;
 &nbsp;
-    /**
-        Returns, whether the given token is validated in the DEX.
-        The token is validated when the validation amount in the given token is paid.
+    function _takeMoneyFromSender(
+        IERC20 currency,
+        address sender,
+        uint256 amount
+    ) internal {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(amount &gt; 0, "You need to sell at least some tokens");
+        uint256 allowance = currency.allowance(sender, address(this));
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(allowance &gt;= amount, "Check the token allowance");
 &nbsp;
-        @param _token The token to be checked.
+        currency.safeTransferFrom(address(sender), address(this), amount);
+    }
 &nbsp;
-		@return Whether the given token is validated in the DEX.
-	 */
-    function validated(address _token) external view returns (bool);
+    function _sendMoneyToPublicSaleOwner(
+        IERC20 currency,
+        address to,
+        uint256 amount
+    ) internal {
+        currency.safeTransfer(to, amount);
+    }
 }
 &nbsp;</pre></td></tr>
 </table></pre>
